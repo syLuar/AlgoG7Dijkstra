@@ -145,6 +145,74 @@ void dijkstra(AdjList* adjList, int src) {
     printShortestPath(dist, V);
 }
 
+AdjList* testCaseAL(int n)
+{   
+    //Remove duplicates to ensure fairness but randomized graph weights and randomization
+    //Max weight from 1 to 50
+    //Max edges per vertex will be 5
+    //Test Cases of 10, 100, 1000
+    //ensure no duplicates, ensure random weights, ensure all digit has a path
+
+    //addEdge(adjList, src, dst, weight) 
+
+    srand(time(NULL));
+
+    AdjList* adjlist = createGraph(n);
+
+    int maxWeight = 50;
+    int maxEdge = 5;
+
+    //Ensure all vertices are connected at least once
+    for(int i=0; i<n; i++)
+    {
+        int edges = rand() % maxEdge + 1; // Random edge between 1 to edges;
+
+        for(int j=0; j<edges; j++)
+        {
+
+            int dst = i;
+            while(dst == i) //ensure the dst will not be the src
+            {
+                dst = rand() % n; //randomly choose a destination
+            }
+
+            int weight = rand() % maxWeight + 1; //Random Weight between 1 and max_weight
+
+            addEdge(adjlist, i, dst, weight);
+        }
+    }
+
+
+    //RemoveDuplicatedEdges just in case if the unidirection screws it up
+
+
+
+
+
+}
+
+void removeDuplicatedEdges(AdjList* list)
+{
+    int vertices = list->V;
+    Node* cur;
+    Node* nextCur;
+
+    for(int i=0; i< vertices; i++)
+    {
+        cur = list->array[i]->data;
+        while(cur != NULL)
+        {
+            nextCur = list->array[i]->next;
+            while(nextCur != NULL)
+            {
+                if()
+            }
+
+        }
+    }
+
+}
+
 int main() {
     int V = 9; 
     AdjList* adjList = createGraph(V);
