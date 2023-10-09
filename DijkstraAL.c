@@ -145,32 +145,6 @@ void dijkstra(AdjList* adjList, int src) {
     printShortestPath(dist, V);
 }
 
-void testCaseGen(int n)
-{   
-    //Remove duplicates to ensure fairness but randomized graph weights and randomization
-    //Max weight from 1 to 50
-    //Max edges per vertex will be 5
-    //Test Cases of 10, 100, 1000
-    //ensure no duplicates, ensure random weights, ensure all digit has a path
-
-    //addEdge(adjList, src, dst, weight) 
-
-    srand(time(NULL));
-
-
-    int maxWeight = 50;
-    int maxEdge = 5;
-
-
-
-    //RemoveDuplicatedEdges just in case if the unidirection screws it up
-
-
-
-
-
-}
-
 
 int main() {
     int V = 9; 
